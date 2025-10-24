@@ -1,0 +1,23 @@
+[project]
+name = "neuroslice"
+version = "0.1.0"
+description = "Slice-wise brain tumor detection and 3D mask reconstruction from MRI"
+authors = [
+    { name = "Alice Matoso", email = "alice@example.com" },
+    { name = "Bob Silva", email = "bob@example.com" },
+]
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = [
+    "torch",
+    "nibabel",
+    "numpy",
+    "ultralytics",
+    "tqdm",
+    "opencv-python", 
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
