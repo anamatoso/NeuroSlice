@@ -15,7 +15,7 @@ A Python package for brain tumor segmentation using YOLO models on MRI FLAIR dat
 ## Description
 
 Neuroslice provides automated brain tumor bounding box detection using pre-trained YOLO models. It uses FLAIR images to segment slice wise the image, though an option to create a cuboid is available.
-The package supports three slice orientations (coronal, sagittal, and axial). 
+The package supports three slice orientations (coronal, sagittal, and axial).
 Models are automatically downloaded from [Hugging Face](https://huggingface.co/anamatoso/neuroslice) when first used.
 
 ## Installation

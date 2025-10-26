@@ -1,6 +1,6 @@
 [project]
 name = "neuroslice"
-version = "0.1.0"
+version = "0.2.1"
 description = "Slice-wise brain tumor detection and 3D mask reconstruction from MRI"
 authors = [
     { name = "Alice Matoso", email = "alice@example.com" },
