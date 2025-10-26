@@ -1,13 +1,13 @@
-from pathlib import Path
-
 import cv2
 import nibabel as nib
 import numpy as np
 from tqdm import tqdm
 from ultralytics import YOLO
 
+from .utils import download_model
 
-def predict(data, axis, model, verbose):
+
+def predict(data, axis, verbose):
     """
     Generate a binary tumor mask from a 3D image array using a trained YOLO model.
     Args:
@@ -18,14 +18,19 @@ def predict(data, axis, model, verbose):
     Returns:
         np.ndarray: Binary mask of detected tumor regions.
     """
+
+    assert axis in [0, 1, 2], "Axis must be 0 (sagittal), 1 (coronal), or 2 (axial)."
+
+    # Load the YOLO model
+    model_path = download_model(axis, verbose)
+    model = YOLO(model_path)
+
     # Initialize binary mask with same shape as input
     binary_mask = np.zeros_like(data, dtype=np.uint8)
     n_slices = data.shape[axis]  # Number of coronal slices
 
-    print(f"Processing {n_slices} coronal slices...")
-
-    # Process each coronal slice (axis=1)
-    for i in tqdm(range(n_slices), desc="Detecting tumors"):
+    # Process each coronal slice
+    for i in tqdm(range(n_slices), desc="Detecting tumors", disable=not verbose):
         # Extract slice
         if axis == 0:
             slice_data = data[i, :, :]
@@ -79,7 +84,7 @@ def predict(data, axis, model, verbose):
         total_voxels = binary_mask.size
         tumor_percentage = (tumor_voxels / total_voxels) * 100
 
-        print("\n Segmentation complete!")
+        print("Segmentation complete!")
         print(f"   Total voxels: {total_voxels:,}")
         print(f"   Tumor voxels: {tumor_voxels:,}")
         print(f"   Tumor percentage: {tumor_percentage:.2f}%")
@@ -87,7 +92,7 @@ def predict(data, axis, model, verbose):
     return binary_mask
 
 
-def predict_mask(nifti_path, direction="coronal", verbose=False):
+def predict_mask(nifti_path, axis, verbose=False):
     """
     Generate a binary tumor mask from a 3D NIfTI image using a trained YOLO model.
 
@@ -101,28 +106,16 @@ def predict_mask(nifti_path, direction="coronal", verbose=False):
         str: Path to the saved binary mask NIfTI file.
     """
 
-    if direction == "sagittal":
-        axis = 0  # Sagittal slices
-    elif direction == "coronal":
-        axis = 1  # Coronal slices
-    elif direction == "axial":
-        axis = 2  # Axial slices
-    else:
-        raise ValueError("Invalid direction. Choose from 'coronal', 'sagittal', or 'axial'.")
-
-    HERE = Path(__file__).resolve().parent
-    model_path = HERE / "models" / f"{direction}_best.pt"
-
-    # Load the YOLO model# Load the YOLO model
-    print(f"Loading YOLO model from {model_path}...")
-    model = YOLO(model_path)
+    assert axis in [0, 1, 2], "Axis must be 0 (sagittal), 1 (coronal), or 2 (axial)."
 
     # Load the NIfTI image
-    print(f"Loading NIfTI image from {nifti_path}...")
     nifti = nib.load(nifti_path)
     data = nifti.get_fdata()
 
-    binary_mask = predict(data, axis, model, verbose)
+    # Predict the binary mask
+    if verbose:
+        print("Generating tumor mask...")
+    binary_mask = predict(data, axis, verbose)
 
     return binary_mask
 
@@ -159,11 +152,11 @@ def mask2cuboid_nifti(mask_path, output_path):
 
 def unite_masks_array(*masks, method="union"):
     """
-    Combine multiple binary masks into one using union or intersection.
+    Combine multiple binary masks into one using union or cuboid.
 
     Args:
         *masks (np.ndarray): Multiple binary masks to combine.
-        method (str): Method to combine masks ('union' or 'intersection').
+        method (str): Method to combine masks ('union' or 'cuboid').
     Returns:
         np.ndarray: Combined binary mask.
     """
@@ -178,12 +171,12 @@ def unite_masks_array(*masks, method="union"):
 
 def unite_masks_nifti(mask_paths, output_path, method="union"):
     """
-    Combine multiple binary mask NIfTI files into one using union or intersection.
+    Combine multiple binary mask NIfTI files into one using union or cuboid.
 
     Args:
         mask_paths (list of str): Paths to the input binary mask NIfTI files.
         output_path (str): Path to save the output combined mask NIfTI file.
-        method (str): Method to combine masks ('union' or 'intersection').
+        method (str): Method to combine masks ('union' or 'cuboid').
     Returns:
         str: Path to the saved combined binary mask NIfTI file.
     """

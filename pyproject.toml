@@ -7,7 +7,7 @@ authors = [
     { name = "Bob Silva", email = "bob@example.com" },
 ]
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 
 dependencies = [
     "torch",
@@ -16,8 +16,15 @@ dependencies = [
     "ultralytics",
     "tqdm",
     "opencv-python", 
+    "huggingface-hub"
 ]
+
+[project.scripts]
+neuroslice = "neuroslice.cli:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["neuroslice"]
