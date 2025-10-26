@@ -1,6 +1,6 @@
 [project]
 name = "neuroslice"
-version = "0.0.2"
+version = "0.0.3"
 description = "Slice-wise brain tumor detection and 3D mask reconstruction from MRI"
 readme = "README.md"
 requires-python = ">=3.8"
