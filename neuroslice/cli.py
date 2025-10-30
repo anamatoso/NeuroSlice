@@ -57,10 +57,10 @@ def main():
     data = nifti.get_fdata()
 
     # Generate mask
-    if isinstance(args.xis, list):
-        mask = predict_multi_axis(data, args.axis, mode=args.mode, verbose=args.verbose)
+    if isinstance(args.axis, list):
+        mask = predict_multi_axis(data, args.axis, args.mode, args.verbose)
     else:
-        mask = predict(data, args.axis, mode=args.mode, verbose=args.verbose)
+        mask = predict(data, args.axis, args.mode, args.verbose)
 
     # Save output
     output_nifti = nib.Nifti1Image(mask.astype("uint8"), nifti.affine, nifti.header)
