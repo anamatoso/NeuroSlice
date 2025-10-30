@@ -50,6 +50,12 @@ Specify slice direction and processing mode:
 neuroslice input.nii.gz output_mask.nii.gz --axis 2 --mode cuboid --verbose
 ```
 
+Use the combination of diferent orientations:
+
+```bash
+neuroslice input.nii.gz output_mask.nii.gz --axis 0,1
+```
+
 **Arguments:**
 
 Mandatory:
@@ -61,7 +67,7 @@ Optional:
 
 - `--direction`: Slice axis (RAS) - 0 (sagittal), 1 (coronal, default), 2 (axial)
 - `--mode`: Processing mode - `union` (default) or `cuboid` (bounding box)
-- `--verbose`: Print details
+- `--verbose`: Print detailed statistics
 
 ### Python API
 
@@ -72,7 +78,7 @@ from neuroslice import predict_mask
 import nibabel as nib
 
 # Generate mask from NIfTI file
-mask = predict_mask("input.nii.gz", verbose=True)
+mask = predict_mask("input.nii.gz", axis=2, verbose=True)
 
 # Save the mask
 nifti = nib.load("input.nii.gz")
@@ -85,7 +91,7 @@ nib.save(output, "output_mask.nii.gz")
 ```python
 from neuroslice import mask2cuboid
 
-cuboid_mask = mask2cuboid_array(mask)
+cuboid_mask = mask2cuboid(mask)
 ```
 
 **Combine multiple masks:**
@@ -93,15 +99,14 @@ cuboid_mask = mask2cuboid_array(mask)
 ```python
 from neuroslice import unite_masks
 
-combined = unite_masks_array(mask1, mask2, mask3, mode="union")
+combined = unite_masks(mask1, mask2, mask3)
 
 ```
 
 **Advanced usage with direct predict function:**
 
 ```python
-from neuroslice import predict
-from ultralytics import YOLO
+from neuroslice import predict, predict_multi_axis
 import nibabel as nib
 
 # Load your data
@@ -109,7 +114,7 @@ nifti = nib.load("input.nii.gz")
 data = nifti.get_fdata()
 
 # Generate mask with custom axis 
-mask = predict(data, axis=0, verbose=True)
+mask = predict(data, axis=0, mode="union", verbose=True)
 
 mask_cuboid = predict_multi_axis(data, axis=[0,1], mode="cuboid"):
 ```
