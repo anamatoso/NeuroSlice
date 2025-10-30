@@ -83,29 +83,18 @@ nib.save(output, "output_mask.nii.gz")
 **Convert mask to bounding cuboid:**
 
 ```python
-from neuroslice import mask2cuboid_array, mask2cuboid_nifti
+from neuroslice import mask2cuboid
 
-# From array
 cuboid_mask = mask2cuboid_array(mask)
-
-# From NIfTI file
-mask2cuboid_nifti("mask.nii.gz", "cuboid_mask.nii.gz")
 ```
 
 **Combine multiple masks:**
 
 ```python
-from neuroslice import unite_masks_array, unite_masks_nifti
+from neuroslice import unite_masks
 
-# Combine arrays
-combined = unite_masks_array(mask1, mask2, mask3, method="union")
+combined = unite_masks_array(mask1, mask2, mask3, mode="union")
 
-# Combine NIfTI files
-unite_masks_nifti(
-    ["mask1.nii.gz", "mask2.nii.gz", "mask3.nii.gz"],
-    "combined_mask.nii.gz",
-    method="cuboid"
-)
 ```
 
 **Advanced usage with direct predict function:**
@@ -121,6 +110,8 @@ data = nifti.get_fdata()
 
 # Generate mask with custom axis 
 mask = predict(data, axis=0, verbose=True)
+
+mask_cuboid = predict_multi_axis(data, axis=[0,1], mode="cuboid"):
 ```
 
 ## Contributing

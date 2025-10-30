@@ -13,7 +13,6 @@ def main():
         else:
             return int(value)
 
-
     parser = argparse.ArgumentParser(
         description="Neuroslice: Brain tumor segmentation using YOLO"
     )
@@ -59,10 +58,10 @@ def main():
 
     # Generate mask
     if isinstance(args.xis, list):
-        mask = predict_multi_axis(data, args.axis, method=args.mode, verbose=args.verbose)
+        mask = predict_multi_axis(data, args.axis, mode=args.mode, verbose=args.verbose)
     else:
-        mask = predict(data, args.axis, args.verbose)
-    
+        mask = predict(data, args.axis, mode=args.mode, verbose=args.verbose)
+
     # Save output
     output_nifti = nib.Nifti1Image(mask.astype("uint8"), nifti.affine, nifti.header)
     nib.save(output_nifti, args.output)
