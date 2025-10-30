@@ -14,8 +14,8 @@ A Python package for brain tumor segmentation using YOLO models on MRI FLAIR dat
 
 ## Description
 
-Neuroslice provides automated brain tumor bounding box detection using pre-trained YOLO models. It uses FLAIR images to segment slice wise the image, though an option to create a cuboid is available.
-The package supports three slice orientations (coronal, sagittal, and axial).
+Neuroslice provides automated brain tumor bounding box detection using pre-trained YOLO models. It uses FLAIR images to segment slice wise the image, though an option to afterwards create a cuboid is available.
+The package supports three slice orientations (coronal, sagittal, and axial) as well as combinations of them.
 Models are automatically downloaded from [Hugging Face](https://huggingface.co/anamatoso/neuroslice) when first used.
 
 ## Installation
@@ -47,7 +47,7 @@ neuroslice input.nii.gz output_mask.nii.gz
 Specify slice direction and processing mode:
 
 ```bash
-neuroslice input.nii.gz output_mask.nii.gz --direction 2 --mode cuboid --verbose
+neuroslice input.nii.gz output_mask.nii.gz --axis 2 --mode cuboid --verbose
 ```
 
 **Arguments:**
@@ -59,7 +59,7 @@ Mandatory:
 
 Optional:
 
-- `--direction`: Slice direction - 0 (sagittal), 1 (coronal, default), 2 (axial)
+- `--direction`: Slice axis (RAS) - 0 (sagittal), 1 (coronal, default), 2 (axial)
 - `--mode`: Processing mode - `union` (default) or `cuboid` (bounding box)
 - `--verbose`: Print details
 
@@ -72,7 +72,7 @@ from neuroslice import predict_mask
 import nibabel as nib
 
 # Generate mask from NIfTI file
-mask = predict_mask("input.nii.gz", 1, verbose=True)
+mask = predict_mask("input.nii.gz", verbose=True)
 
 # Save the mask
 nifti = nib.load("input.nii.gz")
