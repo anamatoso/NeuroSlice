@@ -1,5 +1,7 @@
+import os
+
 from huggingface_hub import hf_hub_download
-from huggingface_hub.utils import disable_progress_bars
+from huggingface_hub.utils import enable_progress_bars, disable_progress_bars
 
 
 def download_model(axis, verbose):
@@ -21,10 +23,15 @@ def download_model(axis, verbose):
 
     if not verbose:
         disable_progress_bars()
-    if verbose:
-        print("Downloading model...")
-    model_path = hf_hub_download(
-        repo_id="anamatoso/neuroslice",
-        filename=f"models/{direction}_best.pt",
-    )
+    else:
+        enable_progress_bars()
+    if os.path.exists(f"models/{direction}_best.pt"):
+        return f"models/{direction}_best.pt"
+    else:
+        if verbose:
+            print("Downloading model...")
+        model_path = hf_hub_download(
+            repo_id="anamatoso/neuroslice",
+            filename=f"models/{direction}_best.pt",
+        )
     return model_path

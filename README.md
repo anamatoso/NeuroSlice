@@ -14,8 +14,8 @@ A Python package for brain tumor segmentation using YOLO models on MRI FLAIR dat
 
 ## Description
 
-Neuroslice provides automated brain tumor bounding box detection using pre-trained YOLO models. It uses FLAIR images to segment slice wise the image, though an option to create a cuboid is available.
-The package supports three slice orientations (coronal, sagittal, and axial).
+Neuroslice provides automated brain tumor bounding box detection using pre-trained YOLO models. It uses FLAIR images to segment slice wise the image, though an option to afterwards create a cuboid is available.
+The package supports three slice orientations (coronal, sagittal, and axial) as well as combinations of them.
 Models are automatically downloaded from [Hugging Face](https://huggingface.co/anamatoso/neuroslice) when first used.
 
 ## Installation
@@ -47,7 +47,13 @@ neuroslice input.nii.gz output_mask.nii.gz
 Specify slice direction and processing mode:
 
 ```bash
-neuroslice input.nii.gz output_mask.nii.gz --direction 2 --mode cuboid --verbose
+neuroslice input.nii.gz output_mask.nii.gz --axis 2 --mode cuboid --verbose
+```
+
+Use the combination of diferent orientations:
+
+```bash
+neuroslice input.nii.gz output_mask.nii.gz --axis 0,1
 ```
 
 **Arguments:**
@@ -59,9 +65,9 @@ Mandatory:
 
 Optional:
 
-- `--direction`: Slice direction - 0 (sagittal), 1 (coronal, default), 2 (axial)
+- `--direction`: Slice axis (RAS) - 0 (sagittal), 1 (coronal, default), 2 (axial)
 - `--mode`: Processing mode - `union` (default) or `cuboid` (bounding box)
-- `--verbose`: Print details
+- `--verbose`: Print detailed statistics
 
 ### Python API
 
@@ -72,7 +78,7 @@ from neuroslice import predict_mask
 import nibabel as nib
 
 # Generate mask from NIfTI file
-mask = predict_mask("input.nii.gz", 1, verbose=True)
+mask = predict_mask("input.nii.gz", axis=2, verbose=True)
 
 # Save the mask
 nifti = nib.load("input.nii.gz")
@@ -83,36 +89,24 @@ nib.save(output, "output_mask.nii.gz")
 **Convert mask to bounding cuboid:**
 
 ```python
-from neuroslice import mask2cuboid_array, mask2cuboid_nifti
+from neuroslice import mask2cuboid
 
-# From array
-cuboid_mask = mask2cuboid_array(mask)
-
-# From NIfTI file
-mask2cuboid_nifti("mask.nii.gz", "cuboid_mask.nii.gz")
+cuboid_mask = mask2cuboid(mask)
 ```
 
 **Combine multiple masks:**
 
 ```python
-from neuroslice import unite_masks_array, unite_masks_nifti
+from neuroslice import unite_masks
 
-# Combine arrays
-combined = unite_masks_array(mask1, mask2, mask3, method="union")
+combined = unite_masks(mask1, mask2, mask3)
 
-# Combine NIfTI files
-unite_masks_nifti(
-    ["mask1.nii.gz", "mask2.nii.gz", "mask3.nii.gz"],
-    "combined_mask.nii.gz",
-    method="cuboid"
-)
 ```
 
 **Advanced usage with direct predict function:**
 
 ```python
-from neuroslice import predict
-from ultralytics import YOLO
+from neuroslice import predict, predict_multi_axis
 import nibabel as nib
 
 # Load your data
@@ -120,7 +114,9 @@ nifti = nib.load("input.nii.gz")
 data = nifti.get_fdata()
 
 # Generate mask with custom axis 
-mask = predict(data, axis=0, verbose=True)
+mask = predict(data, axis=0, mode="union", verbose=True)
+
+mask_cuboid = predict_multi_axis(data, axis=[0,1], mode="cuboid"):
 ```
 
 ## Contributing

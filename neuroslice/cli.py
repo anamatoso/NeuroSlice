@@ -1,10 +1,18 @@
 import argparse
 from pathlib import Path
 import nibabel as nib
-from .core import predict_mask, mask2cuboid_array
+from .core import predict, predict_multi_axis, mask2cuboid
 
 
 def main():
+
+    def parse_axis(value):
+        """Parse axis as either a single int or comma-separated list of ints"""
+        if ',' in value:
+            return [int(x.strip()) for x in value.split(',')]
+        else:
+            return int(value)
+
     parser = argparse.ArgumentParser(
         description="Neuroslice: Brain tumor segmentation using YOLO"
     )
@@ -27,10 +35,9 @@ def main():
     )
     parser.add_argument(
         "--axis",
-        type=int,
+        type=parse_axis,
         default=1,
-        choices=[0, 1, 2],
-        help="Slice direction for single-direction mode (default: 0 = coronal)"
+        help="Slice direction for single-direction mode (default: 1 = coronal) or multiple axes as comma-separated list (e.g., 1,2)"
     )
     parser.add_argument(
         "--verbose",
@@ -47,20 +54,22 @@ def main():
 
     # Load NIfTI for later saving
     nifti = nib.load(args.input)
+    data = nifti.get_fdata()
 
-    mask = predict_mask(args.input, args.axis, verbose=args.verbose)
+    # Generate mask
+    if isinstance(args.axis, list):
+        mask = predict_multi_axis(data, args.axis, args.verbose)
+    else:
+        mask = predict(data, args.axis, args.verbose)
 
     if args.mode == "cuboid":
-        final_mask = mask2cuboid_array(mask)
-    else:
-        final_mask = mask
+        mask = mask2cuboid(mask)
 
     # Save output
-    output_nifti = nib.Nifti1Image(final_mask.astype("uint8"), nifti.affine, nifti.header)
+    output_nifti = nib.Nifti1Image(mask.astype("uint8"), nifti.affine, nifti.header)
     nib.save(output_nifti, args.output)
     if args.verbose:
         print(f"Mask saved to: {args.output}")
-
     return 0
 
 
