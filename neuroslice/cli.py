@@ -1,7 +1,7 @@
 import argparse
 from pathlib import Path
 import nibabel as nib
-from .core import predict, predict_multi_axis
+from .core import predict, predict_multi_axis, mask2cuboid
 
 
 def main():
@@ -58,9 +58,12 @@ def main():
 
     # Generate mask
     if isinstance(args.axis, list):
-        mask = predict_multi_axis(data, args.axis, args.mode, args.verbose)
+        mask = predict_multi_axis(data, args.axis, args.verbose)
     else:
-        mask = predict(data, args.axis, args.mode, args.verbose)
+        mask = predict(data, args.axis, args.verbose)
+
+    if args.mode == "cuboid":
+        mask = mask2cuboid(mask)
 
     # Save output
     output_nifti = nib.Nifti1Image(mask.astype("uint8"), nifti.affine, nifti.header)

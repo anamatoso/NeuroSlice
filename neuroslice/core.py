@@ -35,7 +35,7 @@ def unite_masks(*masks):
     return np.clip(sum(masks), 0, 1)
 
 
-def predict(data, axis, mode, verbose=False):
+def predict(data, axis, verbose=False):
     """
     Generate a binary tumor mask from a 3D image array using a trained YOLO model.
     Args:
@@ -102,8 +102,6 @@ def predict(data, axis, mode, verbose=False):
                 binary_mask[y1:y2, i, x1:x2] = 1
             else:
                 binary_mask[y1:y2, x1:x2, i] = 1
-    if mode == "cuboid":
-        binary_mask = mask2cuboid(binary_mask)
 
     if verbose:
         # Print statistics
@@ -119,7 +117,7 @@ def predict(data, axis, mode, verbose=False):
     return binary_mask
 
 
-def predict_multi_axis(data, axes, mode, verbose=False):
+def predict_multi_axis(data, axes, verbose=False):
     """
     Generate a binary tumor mask from a 3D image array using a trained YOLO model along multiple axes.
 
@@ -135,17 +133,15 @@ def predict_multi_axis(data, axes, mode, verbose=False):
     for axis in axes:
         if verbose:
             print(f"Processing axis {axis}...")
-        mask = predict(data, axis, mode, verbose)
+        mask = predict(data, axis, verbose)
         masks.append(mask)
 
     combined_mask = unite_masks(*masks)
-    if mode == "cuboid":
-        combined_mask = mask2cuboid(combined_mask)
 
     return combined_mask
 
 
-def predict_mask(nifti_path, axis, mode, verbose=False):
+def predict_mask(nifti_path, axis, verbose=False):
     """
     Generate a binary tumor mask from a 3D NIfTI image using a trained YOLO model.
 
@@ -167,8 +163,8 @@ def predict_mask(nifti_path, axis, mode, verbose=False):
         print("Generating tumor mask...")
 
     if isinstance(axis, list):
-        binary_mask = predict_multi_axis(data, axis, mode, verbose=verbose)
+        binary_mask = predict_multi_axis(data, axis, verbose=verbose)
     else:
-        binary_mask = predict(data, axis, mode, verbose)
+        binary_mask = predict(data, axis, verbose)
 
     return binary_mask
