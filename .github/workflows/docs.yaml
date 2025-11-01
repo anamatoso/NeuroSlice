@@ -36,16 +36,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/build/html
-```
-
-### 7. **Add .nojekyll File**
-
-Create `docs/source/.nojekyll` (empty file) to prevent Jekyll processing.
-
-### 8. **Update .gitignore**
-
-Add to your `.gitignore`:
-```
-docs/build/
-docs/source/_static/
-docs/source/_templates/
