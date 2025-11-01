@@ -13,6 +13,7 @@ project = 'NeuroSlice'
 copyright = '2025, Ana Matoso'
 author = 'Ana Matoso'
 release = '1.0.1'
+version = '1.0.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -21,20 +22,59 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
-    'myst_parser',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.intersphinx',
+    'sphinx_copybutton',
 ]
 
-templates_path = ['_templates']
-exclude_patterns = []
+# Extension settings
+autodoc_default_options = {
+    'members': True,
+    'undoc-members': True,
+    'show-inheritance': True,
+}
 
+napoleon_google_style = True
+napoleon_numpy_style = True
+napoleon_use_param = True
+napoleon_use_rtype = True
+
+autosummary_generate = True
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+    'numpy': ('https://numpy.org/doc/stable/', None),
+    'nibabel': ('https://nipy.org/nibabel/', None),
+}
+
+templates_path = ['_templates']
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_rtd_theme'
-html_static_path = ['_static']
+html_theme_options = {
+    'logo_only': False,
+    'prev_next_buttons_location': 'bottom',
+    'style_external_links': False,
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'navigation_depth': 2,
+    'includehidden': True,
+    'titles_only': False
+}
 
-# Napoleon settings for parsing docstrings
-napoleon_google_style = True
-napoleon_numpy_style = True
+html_static_path = ['_static']
+templates_path = ['_templates']
+
+# Custom CSS
+html_css_files = [
+    'custom.css',
+]
+
+html_show_sourcelink = True
+html_show_sphinx = False
+
+# Output options
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

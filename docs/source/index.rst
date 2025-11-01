@@ -1,32 +1,55 @@
-.. NeuroSlice documentation master file, created by
-   sphinx-quickstart on Fri Oct 31 10:38:38 2025.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Welcome to Neuroslice
+=====================
 
-Neuroslice Documentation
-========================
+**Neuroslice** is a Python package for brain tumor segmentation using the YOLOv11m model on MRI FLAIR data.
 
-A Python package for brain tumor segmentation using YOLO models on MRI FLAIR data.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+Overview
+--------
 
-   installation
-   usage
-   api
-   contributing
+Neuroslice provides automated brain tumor bounding box detection using pre-trained YOLO models. It processes FLAIR MRI images slice-wise and supports three slice orientations (coronal, sagittal, and axial). Models are automatically downloaded from Hugging Face when first used.
 
-Installation
-============
+Quick Start
+-----------
+
+Install via pip:
 
 .. code-block:: bash
 
    pip install neuroslice
 
-Indices and tables
-==================
+Basic usage:
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. code-block:: bash
+
+   neuroslice input.nii.gz output_mask.nii.gz --axis 0 --mode --verbose
+
+.. warning::
+   
+   Only use FLAIR sequences as the model was trained only on FLAIR data.
+
+Table of contents
+=================
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Installation
+   
+   installation/installation_guide.rst
+   installation/troubleshooting.rst
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Usage Guide
+   
+   usage_guide/index
+   usage_guide/cli
+   usage_guide/python
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Additional Information
+
+   commands
+   contributing
+   citation
