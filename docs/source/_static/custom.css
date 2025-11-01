@@ -1,0 +1,70 @@
+/* MRtrix3-inspired styling */
+
+/* Better spacing for content */
+.wy-nav-content {
+    max-width: 900px;
+}
+
+/* Code blocks styling */
+div.highlight pre {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Command-line prompts */
+.highlight .gp {
+    color: #4e9a06;
+    font-weight: bold;
+}
+
+/* Better table styling */
+table.docutils {
+    border: 1px solid #e1e4e5;
+    width: 100%;
+}
+
+table.docutils th {
+    background-color: #f3f6f6;
+    border: 1px solid #e1e4e5;
+    padding: 8px;
+    text-align: left;
+}
+
+table.docutils td {
+    border: 1px solid #e1e4e5;
+    padding: 8px;
+}
+
+/* Note/warning boxes */
+.admonition {
+    margin: 1em 0;
+    padding: 1em;
+}
+
+.admonition.note {
+    background-color: #e7f2fa;
+    border-left: 3px solid #2980b9;
+}
+
+.admonition.warning {
+    background-color: #ffedcc;
+    border-left: 3px solid #e67e22;
+}
+
+/* Section headings */
+h1 {
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 0.3em;
+}
+
+h2 {
+    border-bottom: 1px solid #e1e4e5;
+    padding-bottom: 0.3em;
+}
+
+/* Command reference styling */
+.command-name {
+    font-family: monospace;
+    font-weight: bold;
+    color: #2980b9;
+}
