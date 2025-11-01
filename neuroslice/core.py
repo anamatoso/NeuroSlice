@@ -8,12 +8,14 @@ from .utils import download_model
 
 
 def mask2cuboid(mask):
-    """ Convert a binary mask to its bounding cuboid mask.
-     Args:
-         mask (np.ndarray): 3D binary mask.
-     Returns:
-         np.ndarray: 3D binary mask of the bounding cuboid.
-     """
+    """Convert a binary mask to its bounding cuboid mask.
+
+    Args:
+        mask (numpy.ndarray): 3D binary mask.
+
+    Returns:
+        numpy.ndarray: 3D binary mask of the bounding cuboid.
+    """
     coords = np.argwhere(mask)
     minx, miny, minz = coords.min(axis=0)
     maxx, maxy, maxz = coords.max(axis=0)
@@ -23,27 +25,27 @@ def mask2cuboid(mask):
 
 
 def unite_masks(*masks):
-    """
-    Combine multiple binary masks into one using union or cuboid.
+    """Combine multiple binary masks into one using union or cuboid.
 
     Args:
-        *masks (np.ndarray): Multiple binary masks to combine.
-        mode (str): Mode to combine masks ('union' or 'cuboid').
+        *masks (numpy.ndarray): Multiple binary masks to combine.
+
     Returns:
-        np.ndarray: Combined binary mask.
+        numpy.ndarray: Union of the binary masks listed.
     """
     return np.clip(sum(masks), 0, 1)
 
 
 def predict(data, axis, verbose=False):
-    """
-    Generate a binary tumor mask from a 3D image array using a trained YOLO model.
+    """Generate a binary tumor mask from a 3D image array using a trained YOLO model.
+
     Args:
-        data (np.ndarray): 3D image array (e.g., FLAIR image).
+        data (numpy.ndarray): 3D image array (e.g., FLAIR image).
         axis (int): Axis along which to slice the 3D image (0: sagittal, 1: coronal, 2: axial).
         verbose (bool): Whether to print statistics.
+
     Returns:
-        np.ndarray: Binary mask of detected tumor regions.
+        numpy.ndarray: Binary mask of detected tumor regions.
     """
 
     assert axis in [0, 1, 2], "Axis must be 0 (sagittal), 1 (coronal), or 2 (axial)."
@@ -118,16 +120,15 @@ def predict(data, axis, verbose=False):
 
 
 def predict_multi_axis(data, axes, verbose=False):
-    """
-    Generate a binary tumor mask from a 3D image array using a trained YOLO model along multiple axes.
+    """Generate a binary tumor mask from a 3D image array using a trained YOLO model along multiple axes.
 
     Args:
-        data (np.ndarray): 3D image array (e.g., FLAIR image).
+        data (numpy.ndarray): 3D image array (e.g., FLAIR image).
         axes (list of int): List of axes along which to slice the 3D image (0: sagittal, 1: coronal, 2: axial).
-        mode (str): mode to combine masks ('union' or 'cuboid').
         verbose (bool): Whether to print statistics.
+
     Returns:
-        np.ndarray: Combined binary mask of detected tumor regions.
+        numpy.ndarray: Combined binary mask of detected tumor regions.
     """
     masks = []
     for axis in axes:
@@ -142,16 +143,15 @@ def predict_multi_axis(data, axes, verbose=False):
 
 
 def predict_mask(nifti_path, axis, verbose=False):
-    """
-    Generate a binary tumor mask from a 3D NIfTI image using a trained YOLO model.
+    """Generate a binary tumor mask from a 3D NIfTI image using a trained YOLO model.
 
     Args:
         nifti_path (str): Path to the input NIfTI file (e.g., FLAIR image).
         axis (int or list of int): Axis or list of axes along which to slice the 3D image (0: sagittal, 1: coronal, 2: axial).
-        mode (str): mode to combine masks if multiple axes are used ('union' or 'cuboid').
         verbose (bool): Whether to print statistics.
+
     Returns:
-        np.ndarray: Binary mask of detected tumor regions.
+        numpy.ndarray: Binary mask of detected tumor regions.
     """
 
     # Load the NIfTI image
