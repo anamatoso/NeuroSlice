@@ -121,14 +121,11 @@ mask_cuboid = predict_multi_axis(data, axis=[0,1], mode="cuboid"):
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+Contributions are welcome! Please feel free to submit a Pull Request.
+If you want to ask for changes, create an issue detailing what you want changed and someone will look into it.
 
-1. Fork the repository
-2. Create your branch (`git checkout -b feature/AmazingFeature`)
-3. Add your changes to the branch
-4. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-5. Push to the branch (`git push origin feature/AmazingFeature`)
-6. Open a Pull Request
+More information on how to contribute can be found in the documentation.
+
 
 ## Citation
 
