@@ -1,17 +1,22 @@
+""" Command-line interface for NeuroSlice. """
 import argparse
+import sys
 from pathlib import Path
+
 import nibabel as nib
-from .core import predict, predict_multi_axis, mask2cuboid
+
+from .core import mask2cuboid, predict, predict_multi_axis
 
 
 def main():
-
+    """ Main function for NeuroSlice CLI. """
     def parse_axis(value):
         """Parse axis as either a single int or comma-separated list of ints"""
         if ',' in value:
-            return [int(x.strip()) for x in value.split(',')]
+            axis = [int(x.strip()) for x in value.split(',')]
         else:
-            return int(value)
+            axis = int(value)
+        return axis
 
     parser = argparse.ArgumentParser(
         description="Neuroslice: Brain tumor segmentation using YOLO"
@@ -37,7 +42,8 @@ def main():
         "--axis",
         type=parse_axis,
         default=1,
-        help="Slice direction for single-direction mode (default: 1 = coronal) or multiple axes as comma-separated list (e.g., 1,2)"
+        help="Slice direction for single-direction mode (default: 1 = coronal) or multiple \
+        axes as comma-separated list (e.g., 1,2)"
     )
     parser.add_argument(
         "--verbose",
@@ -74,4 +80,4 @@ def main():
 
 
 if __name__ == "__main__":
-    exit(main())
+    sys.exit(main())

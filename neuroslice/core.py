@@ -1,3 +1,4 @@
+""" Core functions for NeuroSlice. """
 import cv2
 import nibabel as nib
 import numpy as np
@@ -72,7 +73,8 @@ def predict(data, axis, verbose=False):
         slice_min, slice_max = np.min(slice_data), np.max(slice_data)
         if slice_max - slice_min == 0:
             continue  # Skip empty slices
-        normalized_slice = ((slice_data - slice_min) / (slice_max - slice_min) * 255).astype(np.uint8)
+        normalized_slice = ((slice_data - slice_min) / (slice_max - slice_min) * 255).astype(
+            np.uint8)
 
         # Convert to BGR format for YOLO (expects 3-channel image)
         slice_bgr = cv2.cvtColor(normalized_slice, cv2.COLOR_GRAY2RGB)
@@ -120,11 +122,13 @@ def predict(data, axis, verbose=False):
 
 
 def predict_multi_axis(data, axes, verbose=False):
-    """Generate a binary tumor mask from a 3D image array using a trained YOLO model along multiple axes.
+    """Generate a binary tumor mask from a 3D image array using a trained
+    YOLO model along multiple axes.
 
     Args:
         data (numpy.ndarray): 3D image array (e.g., FLAIR image).
-        axes (list of int): List of axes along which to slice the 3D image (0: sagittal, 1: coronal, 2: axial).
+        axes (list of int): List of axes along which to slice the
+        3D image (0: sagittal, 1: coronal, 2: axial).
         verbose (bool): Whether to print statistics.
 
     Returns:
@@ -147,7 +151,8 @@ def predict_mask(nifti_path, axis, verbose=False):
 
     Args:
         nifti_path (str): Path to the input NIfTI file (e.g., FLAIR image).
-        axis (int or list of int): Axis or list of axes along which to slice the 3D image (0: sagittal, 1: coronal, 2: axial).
+        axis (int or list of int): Axis or list of axes along which to slice
+        the 3D image (0: sagittal, 1: coronal, 2: axial).
         verbose (bool): Whether to print statistics.
 
     Returns:

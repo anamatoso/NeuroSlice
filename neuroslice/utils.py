@@ -1,7 +1,8 @@
+""" Utility functions for NeuroSlice. """
 import os
 
 from huggingface_hub import hf_hub_download
-from huggingface_hub.utils import enable_progress_bars, disable_progress_bars
+from huggingface_hub.utils import disable_progress_bars, enable_progress_bars
 
 
 def download_model(axis, verbose):
@@ -20,13 +21,15 @@ def download_model(axis, verbose):
         direction = "coronal"
     elif axis == 2:
         direction = "axial"
+    else:
+        raise ValueError("Invalid axis value.")
 
     if not verbose:
         disable_progress_bars()
     else:
         enable_progress_bars()
     if os.path.exists(f"models/{direction}_best.pt"):
-        return f"models/{direction}_best.pt"
+        model_path = f"models/{direction}_best.pt"
     else:
         if verbose:
             print("Downloading model...")
