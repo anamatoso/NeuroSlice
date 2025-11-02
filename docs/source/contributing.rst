@@ -12,39 +12,54 @@ How to Contribute
 
 2. **Clone Your Fork**
 
-   ::
+   .. code-block:: bash
 
       git clone https://github.com/YOUR-USERNAME/neuroslice.git
       cd neuroslice
 
 3. **Create a Branch**
 
-   ::
+   .. code-block:: bash
 
       git checkout -b feature/YourFeatureName
 
 4. **Make Your Changes**
 
-   * Add your features or bug fixes
-   * Follow the existing code style
-   * Update documentation
+   Make your changes (i.e. add new feature or correct bug) in the codebase.
+   Always follow the existing code style.
+   Update the documentation accordingly
 
-5. **Commit Your Changes**
+5. **Check if it follows code style guidelines**
 
-   ::
+   Install flake8 and pylint if you haven't already:
+
+   .. code-block:: bash
+
+      pip install flake8 pylint
+
+   Run the checks (Flake and Pylint checks should pass without errors (and with score>=7.0 for pylint)):
+
+   .. code-block:: bash
+
+      flake8 . --count --max-complexity=10 --max-line-length=127 --statistics
+      pylint $(find . -type f -name "*.py" ! -path "*/venv/*" ! -path "*/.venv/*" ! -path "*/env/*") --fail-under=7.0 --max-locals=30
+
+6. **Commit Your Changes**
+
+   .. code-block:: bash
 
       git add .
       git commit -m "Add: Brief description of your changes"
 
-6. **Push to Your Fork**
+7. **Push to Your Fork**
 
-   ::
+   .. code-block:: bash
 
       git push origin feature/YourFeatureName
 
-7. **Open a Pull Request**
+8. **Open a Pull Request**
 
-   Go to the original repository and open a Pull Request with a clear description of your changes (see guidelines below).
+   Go to the original repository and open a Pull Request with a clear description of your changes.
 
 
 
