@@ -17,6 +17,10 @@ def mask2cuboid(mask):
     Returns:
         numpy.ndarray: 3D binary mask of the bounding cuboid.
     """
+
+    if np.sum(mask) == 0:
+        return mask
+
     coords = np.argwhere(mask)
     minx, miny, minz = coords.min(axis=0)
     maxx, maxy, maxz = coords.max(axis=0)
