@@ -1,7 +1,7 @@
 """ Command-line interface for NeuroSlice. """
 import argparse
+import os
 import sys
-from pathlib import Path
 
 import nibabel as nib
 
@@ -54,7 +54,7 @@ def main():
     args = parser.parse_args()
 
     # Validate input file exists
-    if not Path(args.input).exists():
+    if not os.path.exists(args.input):
         print(f"Error: Input file '{args.input}' not found.")
         return 1
 

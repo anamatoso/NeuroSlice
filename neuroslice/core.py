@@ -4,7 +4,7 @@ import nibabel as nib
 import numpy as np
 from tqdm import tqdm
 from ultralytics import YOLO
-
+import pathlib
 from .utils import download_model
 
 
@@ -38,7 +38,10 @@ def unite_masks(*masks):
     Returns:
         numpy.ndarray: Union of the binary masks listed.
     """
-    return np.clip(sum(masks), 0, 1)
+    result = masks[0].astype(bool)
+    for mask in masks[1:]:
+        result |= mask.astype(bool)
+    return result.astype(np.uint8)
 
 
 def predict(data, axis, verbose=False):
@@ -162,6 +165,9 @@ def predict_mask(nifti_path, axis, verbose=False):
     Returns:
         numpy.ndarray: Binary mask of detected tumor regions.
     """
+
+    if isinstance(nifti_path, pathlib.Path):
+        nifti_path = str(nifti_path)
 
     # Load the NIfTI image
     nifti = nib.load(nifti_path)

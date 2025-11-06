@@ -128,7 +128,6 @@ If you want to ask for changes, create an issue detailing what you want changed 
 
 More information on how to contribute can be found in the documentation.
 
-
 ## Citation
 
 If you use Neuroslice in your research, please cite:
