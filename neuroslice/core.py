@@ -8,7 +8,7 @@ import pathlib
 from .utils import download_model
 
 
-def mask2cuboid(mask):
+def mask2cuboid(mask: np.ndarray) -> np.ndarray:
     """Convert a binary mask to its bounding cuboid mask.
 
     Args:
@@ -29,7 +29,7 @@ def mask2cuboid(mask):
     return new_mask
 
 
-def unite_masks(*masks):
+def unite_masks(*masks: np.ndarray) -> np.ndarray:
     """Combine multiple binary masks into one using union or cuboid.
 
     Args:
@@ -44,7 +44,7 @@ def unite_masks(*masks):
     return result.astype(np.uint8)
 
 
-def predict(data, axis, verbose=False):
+def predict(data: np.ndarray, axis: int, verbose: bool = False) -> np.ndarray:
     """Generate a binary tumor mask from a 3D image array using a trained YOLO model.
 
     Args:
@@ -128,7 +128,7 @@ def predict(data, axis, verbose=False):
     return binary_mask
 
 
-def predict_multi_axis(data, axes, verbose=False):
+def predict_multi_axis(data: np.ndarray, axes: list, verbose: bool = False):
     """Generate a binary tumor mask from a 3D image array using a trained
     YOLO model along multiple axes.
 
@@ -153,7 +153,7 @@ def predict_multi_axis(data, axes, verbose=False):
     return combined_mask
 
 
-def predict_mask(nifti_path, axis, verbose=False):
+def predict_mask(nifti_path: str, axis: int | list, verbose: bool = False):
     """Generate a binary tumor mask from a 3D NIfTI image using a trained YOLO model.
 
     Args:

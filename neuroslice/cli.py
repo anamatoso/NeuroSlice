@@ -10,7 +10,7 @@ from .core import mask2cuboid, predict, predict_multi_axis
 
 def main():
     """ Main function for NeuroSlice CLI. """
-    def parse_axis(value):
+    def parse_axis(value: str):
         """Parse axis as either a single int or comma-separated list of ints"""
         if ',' in value:
             axis = [int(x.strip()) for x in value.split(',')]
