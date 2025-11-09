@@ -1,12 +1,12 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Command-Line Interface &mdash; NeuroSlice 1.0.1 documentation</title>
+  <title>Command-Line Interface &mdash; NeuroSlice 1.0.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -15,9 +15,9 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=0b546569"></script>
-      <script src="../_static/doctools.js?v=888ff710"></script>
-      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../_static/documentation_options.js?v=71272d9f"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -84,7 +84,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../commands.html">List of commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html">List of commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#neuroslice.mask2cuboid"><code class="docutils literal notranslate"><span class="pre">mask2cuboid()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#neuroslice.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#neuroslice.predict_mask"><code class="docutils literal notranslate"><span class="pre">predict_mask()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#neuroslice.predict_multi_axis"><code class="docutils literal notranslate"><span class="pre">predict_multi_axis()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#neuroslice.unite_masks"><code class="docutils literal notranslate"><span class="pre">unite_masks()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#how-to-contribute">How to Contribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#code-style-guidelines">Code Style Guidelines</a></li>
@@ -123,10 +130,10 @@
            <div itemprop="articleBody">
              
   <section id="command-line-interface">
-<h1>Command-Line Interface<a class="headerlink" href="#command-line-interface" title="Permalink to this heading"></a></h1>
+<h1>Command-Line Interface<a class="headerlink" href="#command-line-interface" title="Link to this heading"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">neuroslice</span></code> command provides a simple interface for brain tumor segmentation from the terminal.</p>
 <section id="basic-syntax">
-<h2>Basic Syntax<a class="headerlink" href="#basic-syntax" title="Permalink to this heading"></a></h2>
+<h2>Basic Syntax<a class="headerlink" href="#basic-syntax" title="Link to this heading"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neuroslice</span> <span class="n">INPUT</span> <span class="n">OUTPUT</span> <span class="p">[</span><span class="n">OPTIONS</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -143,13 +150,13 @@
 </ul>
 </section>
 <section id="simple-examples">
-<h2>Simple Examples<a class="headerlink" href="#simple-examples" title="Permalink to this heading"></a></h2>
+<h2>Simple Examples<a class="headerlink" href="#simple-examples" title="Link to this heading"></a></h2>
 <p>Process with default settings:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">neuroslice</span> <span class="n">FLAIR</span><span class="o">.</span><span class="n">nii</span><span class="o">.</span><span class="n">gz</span> <span class="n">tumor_mask</span><span class="o">.</span><span class="n">nii</span><span class="o">.</span><span class="n">gz</span>
 </pre></div>
 </div>
 <section id="slice-direction-options">
-<h3>Slice Direction Options<a class="headerlink" href="#slice-direction-options" title="Permalink to this heading"></a></h3>
+<h3>Slice Direction Options<a class="headerlink" href="#slice-direction-options" title="Link to this heading"></a></h3>
 <p>Use <code class="docutils literal notranslate"><span class="pre">--axis</span></code> to specify the slice orientation:</p>
 <ul class="simple">
 <li><p>axis=0: Sagittal (Left-Right)</p></li>
@@ -165,7 +172,7 @@
 </div>
 </section>
 <section id="processing-modes">
-<h3>Processing Modes<a class="headerlink" href="#processing-modes" title="Permalink to this heading"></a></h3>
+<h3>Processing Modes<a class="headerlink" href="#processing-modes" title="Link to this heading"></a></h3>
 <p>Union mode (default) creates a mask with only the detected tumor regions:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neuroslice<span class="w"> </span>input.nii.gz<span class="w"> </span>output.nii.gz<span class="w"> </span>--mode<span class="w"> </span>union
 </pre></div>
@@ -176,7 +183,7 @@
 </div>
 </section>
 <section id="complete-example">
-<h3>Complete Example<a class="headerlink" href="#complete-example" title="Permalink to this heading"></a></h3>
+<h3>Complete Example<a class="headerlink" href="#complete-example" title="Link to this heading"></a></h3>
 <p>Process with all options specified:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>neuroslice<span class="w"> </span>brain_scan.nii.gz<span class="w"> </span>result_mask.nii.gz<span class="w"> </span>--axis<span class="w"> </span><span class="m">2</span><span class="w"> </span>--mode<span class="w"> </span>cuboid<span class="w"> </span>--verbose
 </pre></div>
@@ -192,7 +199,7 @@
 </section>
 </section>
 <section id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a></h2>
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="python.html"><span class="doc">Python</span></a> - Python usage</p></li>
 <li><p><a class="reference internal" href="../commands.html"><span class="doc">List of commands</span></a> - Complete API documentation</p></li>

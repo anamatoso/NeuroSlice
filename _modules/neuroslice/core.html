@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>neuroslice.core &mdash; NeuroSlice 1.0.4 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=eeabc84b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=71272d9f"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            NeuroSlice
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation_guide.html">How to install Neuroslice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/installation_guide.html#using-pip">Using pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/installation_guide.html#from-source">From Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation/troubleshooting.html">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html#installation-errors">Installation Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html#model-download-issues">Model Download Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/troubleshooting.html#contact-and-support">Contact and Support</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage_guide/index.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide/index.html#quick-examples">Quick Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide/index.html#see-also">See also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage_guide/cli.html">Command-Line Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide/cli.html#basic-syntax">Basic Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide/cli.html#simple-examples">Simple Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide/cli.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage_guide/python.html">Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide/python.html#core-functions">Core Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide/python.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide/python.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide/python.html#complete-workflow-example">Complete Workflow Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage_guide/python.html#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../commands.html">List of commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../commands.html#neuroslice.mask2cuboid"><code class="docutils literal notranslate"><span class="pre">mask2cuboid()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands.html#neuroslice.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands.html#neuroslice.predict_mask"><code class="docutils literal notranslate"><span class="pre">predict_mask()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands.html#neuroslice.predict_multi_axis"><code class="docutils literal notranslate"><span class="pre">predict_multi_axis()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../commands.html#neuroslice.unite_masks"><code class="docutils literal notranslate"><span class="pre">unite_masks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#how-to-contribute">How to Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#code-style-guidelines">Code Style Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#reporting-issues-and-questions-support">Reporting Issues and Questions/Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../citation.html">Citation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../citation.html#how-to-cite">How to Cite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../citation.html#related-publications">Related Publications</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">NeuroSlice</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">neuroslice.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for neuroslice.core</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; Core functions for NeuroSlice. &quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_model</span>
+
+
+<div class="viewcode-block" id="mask2cuboid">
+<a class="viewcode-back" href="../../commands.html#neuroslice.mask2cuboid">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">mask2cuboid</span><span class="p">(</span><span class="n">mask</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert a binary mask to its bounding cuboid mask.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mask (numpy.ndarray): 3D binary mask.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: 3D binary mask of the bounding cuboid.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">mask</span>
+
+    <span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+    <span class="n">minx</span><span class="p">,</span> <span class="n">miny</span><span class="p">,</span> <span class="n">minz</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">maxx</span><span class="p">,</span> <span class="n">maxy</span><span class="p">,</span> <span class="n">maxz</span> <span class="o">=</span> <span class="n">coords</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">new_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+    <span class="n">new_mask</span><span class="p">[</span><span class="n">minx</span><span class="p">:</span><span class="n">maxx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">miny</span><span class="p">:</span><span class="n">maxy</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">minz</span><span class="p">:</span><span class="n">maxz</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">new_mask</span></div>
+
+
+
+<div class="viewcode-block" id="unite_masks">
+<a class="viewcode-back" href="../../commands.html#neuroslice.unite_masks">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">unite_masks</span><span class="p">(</span><span class="o">*</span><span class="n">masks</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Combine multiple binary masks into one using union or cuboid.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        *masks (numpy.ndarray): Multiple binary masks to combine.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Union of the binary masks listed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">mask</span> <span class="ow">in</span> <span class="n">masks</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">result</span> <span class="o">|=</span> <span class="n">mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="predict">
+<a class="viewcode-back" href="../../commands.html#neuroslice.predict">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a binary tumor mask from a 3D image array using a trained YOLO model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (numpy.ndarray): 3D image array (e.g., FLAIR image).</span>
+<span class="sd">        axis (int): Axis along which to slice the 3D image (0: sagittal, 1: coronal, 2: axial).</span>
+<span class="sd">        verbose (bool): Whether to print statistics.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Binary mask of detected tumor regions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">assert</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;Axis must be 0 (sagittal), 1 (coronal), or 2 (axial).&quot;</span>
+
+    <span class="c1"># Load the YOLO model</span>
+    <span class="n">model_path</span> <span class="o">=</span> <span class="n">download_model</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model_path</span><span class="p">)</span>
+
+    <span class="c1"># Initialize binary mask with same shape as input</span>
+    <span class="n">binary_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">n_slices</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span>
+
+    <span class="c1"># Process each slice</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_slices</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Detecting tumors in axis=</span><span class="si">{</span><span class="n">axis</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">disable</span><span class="o">=</span><span class="ow">not</span> <span class="n">verbose</span><span class="p">):</span>
+        <span class="c1"># Extract slice</span>
+        <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">slice_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+        <span class="k">elif</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">slice_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">slice_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">]</span>
+
+        <span class="c1"># Normalize slice to 0-255 for YOLO input</span>
+        <span class="n">slice_min</span><span class="p">,</span> <span class="n">slice_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">slice_data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">slice_data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">slice_max</span> <span class="o">-</span> <span class="n">slice_min</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>  <span class="c1"># Skip empty slices</span>
+        <span class="n">normalized_slice</span> <span class="o">=</span> <span class="p">((</span><span class="n">slice_data</span> <span class="o">-</span> <span class="n">slice_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">slice_max</span> <span class="o">-</span> <span class="n">slice_min</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+
+        <span class="c1"># Convert to BGR format for YOLO (expects 3-channel image)</span>
+        <span class="n">slice_bgr</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">normalized_slice</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_GRAY2RGB</span><span class="p">)</span>
+
+        <span class="c1"># Run YOLO prediction</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">slice_bgr</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="c1"># Process detections</span>
+        <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">slice_data</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="p">:</span>
+            <span class="c1"># Get bounding box in YOLO format (normalized)</span>
+            <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">box</span><span class="o">.</span><span class="n">xywhn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+            <span class="c1"># Convert to pixel coordinates</span>
+            <span class="n">x1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">x_center</span> <span class="o">-</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span>
+            <span class="n">y1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">y_center</span> <span class="o">-</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+            <span class="n">x2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">x_center</span> <span class="o">+</span> <span class="n">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span>
+            <span class="n">y2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">y_center</span> <span class="o">+</span> <span class="n">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span>
+
+            <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">x1</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
+            <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">x2</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+
+            <span class="c1"># Directly fill per-box region</span>
+            <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">binary_mask</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">y1</span><span class="p">:</span><span class="n">y2</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span><span class="n">x2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">elif</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">binary_mask</span><span class="p">[</span><span class="n">y1</span><span class="p">:</span><span class="n">y2</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span><span class="n">x2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">binary_mask</span><span class="p">[</span><span class="n">y1</span><span class="p">:</span><span class="n">y2</span><span class="p">,</span> <span class="n">x1</span><span class="p">:</span><span class="n">x2</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="c1"># Print statistics</span>
+        <span class="n">tumor_voxels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">binary_mask</span><span class="p">)</span>
+        <span class="n">total_voxels</span> <span class="o">=</span> <span class="n">binary_mask</span><span class="o">.</span><span class="n">size</span>
+        <span class="n">tumor_percentage</span> <span class="o">=</span> <span class="p">(</span><span class="n">tumor_voxels</span> <span class="o">/</span> <span class="n">total_voxels</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Segmentation complete!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Total voxels: </span><span class="si">{</span><span class="n">total_voxels</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Tumor voxels: </span><span class="si">{</span><span class="n">tumor_voxels</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;   Tumor percentage: </span><span class="si">{</span><span class="n">tumor_percentage</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">binary_mask</span></div>
+
+
+
+<div class="viewcode-block" id="predict_multi_axis">
+<a class="viewcode-back" href="../../commands.html#neuroslice.predict_multi_axis">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">predict_multi_axis</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">axes</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a binary tumor mask from a 3D image array using a trained</span>
+<span class="sd">    YOLO model along multiple axes.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (numpy.ndarray): 3D image array (e.g., FLAIR image).</span>
+<span class="sd">        axes (list of int): List of axes along which to slice the</span>
+<span class="sd">        3D image (0: sagittal, 1: coronal, 2: axial).</span>
+<span class="sd">        verbose (bool): Whether to print statistics.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Combined binary mask of detected tumor regions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">masks</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing axis </span><span class="si">{</span><span class="n">axis</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+        <span class="n">masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+
+    <span class="n">combined_mask</span> <span class="o">=</span> <span class="n">unite_masks</span><span class="p">(</span><span class="o">*</span><span class="n">masks</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">combined_mask</span></div>
+
+
+
+<div class="viewcode-block" id="predict_mask">
+<a class="viewcode-back" href="../../commands.html#neuroslice.predict_mask">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">predict_mask</span><span class="p">(</span><span class="n">nifti_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">list</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a binary tumor mask from a 3D NIfTI image using a trained YOLO model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        nifti_path (str): Path to the input NIfTI file (e.g., FLAIR image).</span>
+<span class="sd">        axis (int or list of int): Axis or list of axes along which to slice</span>
+<span class="sd">        the 3D image (0: sagittal, 1: coronal, 2: axial).</span>
+<span class="sd">        verbose (bool): Whether to print statistics.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Binary mask of detected tumor regions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">nifti_path</span><span class="p">,</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">):</span>
+        <span class="n">nifti_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">nifti_path</span><span class="p">)</span>
+
+    <span class="c1"># Load the NIfTI image</span>
+    <span class="n">nifti</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">nifti_path</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">nifti</span><span class="o">.</span><span class="n">get_fdata</span><span class="p">()</span>
+
+    <span class="c1"># Predict the binary mask</span>
+    <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Generating tumor mask...&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">binary_mask</span> <span class="o">=</span> <span class="n">predict_multi_axis</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">binary_mask</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">verbose</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">binary_mask</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ana Matoso.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -3,10 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contributing &mdash; NeuroSlice 1.0.4 documentation</title>
+  <title>Python Module Index &mdash; NeuroSlice 1.0.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -23,8 +22,13 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Citation" href="citation.html" />
-    <link rel="prev" title="List of commands" href="commands.html" /> 
+ 
+
+    <script>
+      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
+    </script>
+
+
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -83,7 +87,7 @@
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="commands.html">List of commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#neuroslice.mask2cuboid"><code class="docutils literal notranslate"><span class="pre">mask2cuboid()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="commands.html#neuroslice.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
@@ -92,10 +96,10 @@
 <li class="toctree-l2"><a class="reference internal" href="commands.html#neuroslice.unite_masks"><code class="docutils literal notranslate"><span class="pre">unite_masks()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-contribute">How to Contribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#code-style-guidelines">Code Style Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#reporting-issues-and-questions-support">Reporting Issues and Questions/Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#how-to-contribute">How to Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#code-style-guidelines">Code Style Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributing.html#reporting-issues-and-questions-support">Reporting Issues and Questions/Support</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="citation.html">Citation</a><ul>
@@ -119,9 +123,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Contributing</li>
+      <li class="breadcrumb-item active">Python Module Index</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/contributing.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -129,87 +132,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Link to this heading"></a></h1>
-<p>Contributions to Neuroslice are welcome! This page provides guidelines for contributing to the project.</p>
-<section id="how-to-contribute">
-<h2>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading"></a></h2>
-<ol class="arabic">
-<li><p><strong>Fork the Repository</strong></p>
-<p>Fork the repository on GitHub at <a class="reference external" href="https://github.com/anamatoso/neuroslice">https://github.com/anamatoso/neuroslice</a></p>
-</li>
-<li><p><strong>Clone Your Fork</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR-USERNAME/neuroslice.git
-<span class="nb">cd</span><span class="w"> </span>neuroslice
-</pre></div>
-</div>
-</li>
-<li><p><strong>Create a Branch</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/YourFeatureName
-</pre></div>
-</div>
-</li>
-<li><p><strong>Make Your Changes</strong></p>
-<p>Make your changes (i.e. add new feature or correct bug) in the codebase.
-Always follow the existing code style.
-Update the documentation accordingly</p>
-</li>
-<li><p><strong>Check if it follows code style guidelines</strong></p>
-<p>Install flake8 and pylint if you haven’t already:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>flake8<span class="w"> </span>pylint
-</pre></div>
-</div>
-<p>Run the checks (Flake and Pylint checks should pass without errors (and with score&gt;=7.0 for pylint)):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flake8<span class="w"> </span>.<span class="w"> </span>--count<span class="w"> </span>--max-complexity<span class="o">=</span><span class="m">10</span><span class="w"> </span>--max-line-length<span class="o">=</span><span class="m">127</span><span class="w"> </span>--statistics
-pylint<span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.py&quot;</span><span class="w"> </span>!<span class="w"> </span>-path<span class="w"> </span><span class="s2">&quot;*/venv/*&quot;</span><span class="w"> </span>!<span class="w"> </span>-path<span class="w"> </span><span class="s2">&quot;*/.venv/*&quot;</span><span class="w"> </span>!<span class="w"> </span>-path<span class="w"> </span><span class="s2">&quot;*/env/*&quot;</span><span class="k">)</span><span class="w"> </span>--fail-under<span class="o">=</span><span class="m">7</span>.0<span class="w"> </span>--max-locals<span class="o">=</span><span class="m">30</span>
-</pre></div>
-</div>
-</li>
-<li><p><strong>Commit Your Changes</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add: Brief description of your changes&quot;</span>
-</pre></div>
-</div>
-</li>
-<li><p><strong>Push to Your Fork</strong></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/YourFeatureName
-</pre></div>
-</div>
-</li>
-<li><p><strong>Open a Pull Request</strong></p>
-<p>Go to the original repository and open a Pull Request with a clear description of your changes.</p>
-</li>
-</ol>
-</section>
-<section id="code-style-guidelines">
-<h2>Code Style Guidelines<a class="headerlink" href="#code-style-guidelines" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Follow PEP 8 style guidelines</p></li>
-<li><p>Use meaningful variable and function names</p></li>
-<li><p>Add docstrings to all functions (Google style preferred)</p></li>
-<li><p>Update documentation as needed</p></li>
-<li><p>Keep functions focused and modular</p></li>
-</ul>
-</section>
-<section id="reporting-issues-and-questions-support">
-<h2>Reporting Issues and Questions/Support<a class="headerlink" href="#reporting-issues-and-questions-support" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><p>Check existing issues to avoid duplicates</p></li>
-<li><p>Open a new issue on GitHub</p></li>
-<li><p>Provide clear description and steps to reproduce (if applicable)</p></li>
-<li><p>Include system information and error messages if applicable</p></li>
-<li><p>Add an appropriate label (bug, enhancement, question, etc.)</p></li>
-</ol>
-</section>
-</section>
+
+   <h1>Python Module Index</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-n"><strong>n</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-n"><td></td><td>
+       <strong>n</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="commands.html#module-neuroslice"><code class="xref">neuroslice</code></a></td><td>
+       <em></em></td></tr>
+   </table>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="commands.html" class="btn btn-neutral float-left" title="List of commands" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="citation.html" class="btn btn-neutral float-right" title="Citation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

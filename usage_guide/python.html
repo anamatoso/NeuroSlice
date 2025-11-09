@@ -1,12 +1,12 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python &mdash; NeuroSlice 1.0.1 documentation</title>
+  <title>Python &mdash; NeuroSlice 1.0.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -15,9 +15,9 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=0b546569"></script>
-      <script src="../_static/doctools.js?v=888ff710"></script>
-      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script src="../_static/documentation_options.js?v=71272d9f"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/js/theme.js"></script>
@@ -84,7 +84,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Additional Information</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../commands.html">List of commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commands.html">List of commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#neuroslice.mask2cuboid"><code class="docutils literal notranslate"><span class="pre">mask2cuboid()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#neuroslice.predict"><code class="docutils literal notranslate"><span class="pre">predict()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#neuroslice.predict_mask"><code class="docutils literal notranslate"><span class="pre">predict_mask()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#neuroslice.predict_multi_axis"><code class="docutils literal notranslate"><span class="pre">predict_multi_axis()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commands.html#neuroslice.unite_masks"><code class="docutils literal notranslate"><span class="pre">unite_masks()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#how-to-contribute">How to Contribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing.html#code-style-guidelines">Code Style Guidelines</a></li>
@@ -123,10 +130,10 @@
            <div itemprop="articleBody">
              
   <section id="python">
-<h1>Python<a class="headerlink" href="#python" title="Permalink to this heading"></a></h1>
+<h1>Python<a class="headerlink" href="#python" title="Link to this heading"></a></h1>
 <p>Neuroslice provides a Python API for integration into your scripts and processing pipelines.</p>
 <section id="core-functions">
-<h2>Core Functions<a class="headerlink" href="#core-functions" title="Permalink to this heading"></a></h2>
+<h2>Core Functions<a class="headerlink" href="#core-functions" title="Link to this heading"></a></h2>
 <p>The main functions available are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">predict()</span></code> - Generate mask from array data</p></li>
@@ -137,9 +144,9 @@
 </ul>
 </section>
 <section id="basic-usage">
-<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading"></a></h2>
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h2>
 <section id="generate-mask-from-file">
-<h3>Generate Mask from File<a class="headerlink" href="#generate-mask-from-file" title="Permalink to this heading"></a></h3>
+<h3>Generate Mask from File<a class="headerlink" href="#generate-mask-from-file" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neuroslice</span><span class="w"> </span><span class="kn">import</span> <span class="n">predict_mask</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nib</span>
 
@@ -154,7 +161,7 @@
 </div>
 </section>
 <section id="process-from-array">
-<h3>Process from Array<a class="headerlink" href="#process-from-array" title="Permalink to this heading"></a></h3>
+<h3>Process from Array<a class="headerlink" href="#process-from-array" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neuroslice</span><span class="w"> </span><span class="kn">import</span> <span class="n">predict</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nib</span>
 
@@ -169,9 +176,9 @@
 </section>
 </section>
 <section id="advanced-usage">
-<h2>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this heading"></a></h2>
+<h2>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Link to this heading"></a></h2>
 <section id="multiple-orientations">
-<h3>Multiple Orientations<a class="headerlink" href="#multiple-orientations" title="Permalink to this heading"></a></h3>
+<h3>Multiple Orientations<a class="headerlink" href="#multiple-orientations" title="Link to this heading"></a></h3>
 <p>Process along multiple axes and combine results:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neuroslice</span><span class="w"> </span><span class="kn">import</span> <span class="n">predict_multi_axis</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nib</span>
@@ -197,7 +204,7 @@
 </div>
 </section>
 <section id="convert-to-cuboid">
-<h3>Convert to Cuboid<a class="headerlink" href="#convert-to-cuboid" title="Permalink to this heading"></a></h3>
+<h3>Convert to Cuboid<a class="headerlink" href="#convert-to-cuboid" title="Link to this heading"></a></h3>
 <p>Convert a mask to its bounding cuboid:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neuroslice</span><span class="w"> </span><span class="kn">import</span> <span class="n">mask2cuboid</span>
 
@@ -207,7 +214,7 @@
 </div>
 </section>
 <section id="combine-multiple-masks">
-<h3>Combine Multiple Masks<a class="headerlink" href="#combine-multiple-masks" title="Permalink to this heading"></a></h3>
+<h3>Combine Multiple Masks<a class="headerlink" href="#combine-multiple-masks" title="Link to this heading"></a></h3>
 <p>Unite masks from different processing runs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neuroslice</span><span class="w"> </span><span class="kn">import</span> <span class="n">unite_masks</span>
 
@@ -223,9 +230,9 @@
 </section>
 </section>
 <section id="complete-workflow-example">
-<h2>Complete Workflow Example<a class="headerlink" href="#complete-workflow-example" title="Permalink to this heading"></a></h2>
+<h2>Complete Workflow Example<a class="headerlink" href="#complete-workflow-example" title="Link to this heading"></a></h2>
 <section id="processing-pipeline">
-<h3>Processing Pipeline<a class="headerlink" href="#processing-pipeline" title="Permalink to this heading"></a></h3>
+<h3>Processing Pipeline<a class="headerlink" href="#processing-pipeline" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nib</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">neuroslice</span><span class="w"> </span><span class="kn">import</span> <span class="n">predict_mask</span><span class="p">,</span> <span class="n">mask2cuboid</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -269,7 +276,7 @@
 </section>
 </section>
 <section id="see-also">
-<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a></h2>
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="cli.html"><span class="doc">Command-Line Interface</span></a> - Command-line interface usage</p></li>
 <li><p><a class="reference internal" href="../commands.html"><span class="doc">List of commands</span></a> - Complete API documentation</p></li>
