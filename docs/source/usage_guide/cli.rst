@@ -60,10 +60,9 @@ Union mode (default) creates a mask with only the detected tumor regions:
 
    neuroslice input.nii.gz output.nii.gz --mode union
 
-Cuboid Mode
-~~~~~~~~~~~
 
-Creates a bounding box around all detections (better for downstream processing as it provides a convex region):
+
+Cuboid mode creates a bounding box around all detections (better for downstream processing as it provides a convex region):
 
 .. code-block:: bash
 
@@ -85,3 +84,10 @@ Process with all options specified:
    * Try different orientations if results are suboptimal
    * Use ``--verbose`` during initial testing
    * Consider using cuboid mode for downstream processing
+
+
+See Also
+--------
+
+* :doc:`python` - Python usage
+* :doc:`../commands` - Complete API documentation

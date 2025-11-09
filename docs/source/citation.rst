@@ -25,7 +25,6 @@ BibTeX Entry
       journal = {Magnetic Resonance Materials in Physics, Biology and Medicine},
       month = sep,
       year = {2025},
-      keywords = {notion},
       pages = {468--469},
    }
 
