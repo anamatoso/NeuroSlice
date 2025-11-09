@@ -39,7 +39,7 @@ Python
 .. note::
    
    * Try different orientations if results are suboptimal
-   * Use ``--verbose`` during initial testing
+   * Use verbose during initial testing
    * Consider using cuboid mode for downstream processing
 
 See also

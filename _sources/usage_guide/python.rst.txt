@@ -161,5 +161,5 @@ Processing Pipeline
 See Also
 --------
 
-* :doc:`../commands` - Complete API documentation
 * :doc:`cli` - Command-line interface usage
+* :doc:`../commands` - Complete API documentation
