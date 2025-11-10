@@ -1,7 +1,7 @@
 Welcome to Neuroslice
 =====================
 
-**Neuroslice** is a Python package for brain tumor segmentation using the YOLOv11m model on MRI FLAIR data.
+**Neuroslice** is a Python package for brain tumor bounding box detection using the YOLOv11m model on MRI FLAIR data.
 
 
 Overview
