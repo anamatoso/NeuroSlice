@@ -15,7 +15,7 @@ BibTeX Entry
 
 ::
 
-   @article{noauthor_book_2025,
+   @article{santos_palmeirao_2025,
       title = {Book of {Abstracts} {ESMRMB} 2025 {Online} 41st {Annual} {Scientific} {Meeting} 8–11 {October} 2025},
       issn = {1352-8661},
       url = {https://doi.org/10.1007/s10334-025-01278-8},
@@ -23,6 +23,7 @@ BibTeX Entry
       language = {en},
       urldate = {2025-10-28},
       journal = {Magnetic Resonance Materials in Physics, Biology and Medicine},
+      author = {Santos Palmeirão, Catarina and Passarinho, Catarina and Matoso, Ana and P. Loureiro, Marta and Moreira, José Maria and Figueiredo, Patrícia and G Nunes, Rita},
       month = sep,
       year = {2025},
       pages = {468--469},
