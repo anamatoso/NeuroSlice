@@ -9,6 +9,17 @@ Overview
 
 Neuroslice provides automated brain tumor bounding box detection using pre-trained YOLO models. It processes FLAIR MRI images slice-wise and supports three slice orientations (coronal, sagittal, and axial). Models are automatically downloaded from Hugging Face when first used.
 
+.. list-table::
+   :widths: 50 50
+   :header-rows: 0
+
+   * - .. image:: assets/tumordetection1.gif
+         :alt: Tumor detection example 1
+         :scale: 50
+     - .. image:: assets/tumordetection2.gif
+         :alt: Tumor detection example 2
+         :scale: 50
+
 Quick Start
 -----------
 
