@@ -3,7 +3,7 @@ name = "neuroslice"
 version = "1.0.4"
 description = "Slice-wise brain tumor detection and 3D mask reconstruction from MRI"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 
 dependencies = [
     "nibabel",
