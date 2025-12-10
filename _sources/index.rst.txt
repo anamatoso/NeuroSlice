@@ -3,6 +3,7 @@ Welcome to Neuroslice
 
 **Neuroslice** is a Python package for brain tumor bounding box detection using the YOLOv11m model on MRI FLAIR data.
 
+You can find the Github repository `here <https://github.com/anamatoso/neuroslice>`_.
 
 Overview
 --------
