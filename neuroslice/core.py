@@ -134,8 +134,7 @@ def predict_multi_axis(data: np.ndarray, axes: list, verbose: bool = False):
 
     Args:
         data (numpy.ndarray): 3D image array (e.g., FLAIR image).
-        axes (list of int): List of axes along which to slice the
-        3D image (0: sagittal, 1: coronal, 2: axial).
+        axes (list of int): List of axes along which to slice the 3D image (0: sagittal, 1: coronal, 2: axial).
         verbose (bool): Whether to print statistics.
 
     Returns:
@@ -158,8 +157,7 @@ def predict_mask(nifti_path: str, axis: int | list, verbose: bool = False):
 
     Args:
         nifti_path (str): Path to the input NIfTI file (e.g., FLAIR image).
-        axis (int or list of int): Axis or list of axes along which to slice
-        the 3D image (0: sagittal, 1: coronal, 2: axial).
+        axis (int or list of int): Axis or list of axes along which to slice the 3D image (0: sagittal, 1: coronal, 2: axial).
         verbose (bool): Whether to print statistics.
 
     Returns:
