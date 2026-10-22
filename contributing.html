@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contributing &mdash; NeuroSlice 1.0.4 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=eeabc84b" />
 
@@ -16,8 +16,8 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=71272d9f"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
       <script src="_static/copybutton.js?v=f281be69"></script>
     <script src="_static/js/theme.js"></script>
@@ -161,13 +161,13 @@ Update the documentation accordingly</p>
 </div>
 <p>Run the checks (Flake and Pylint checks should pass without errors (and with score&gt;=7.0 for pylint)):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flake8<span class="w"> </span>.<span class="w"> </span>--count<span class="w"> </span>--max-complexity<span class="o">=</span><span class="m">10</span><span class="w"> </span>--max-line-length<span class="o">=</span><span class="m">127</span><span class="w"> </span>--statistics
-pylint<span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.py&quot;</span><span class="w"> </span>!<span class="w"> </span>-path<span class="w"> </span><span class="s2">&quot;*/venv/*&quot;</span><span class="w"> </span>!<span class="w"> </span>-path<span class="w"> </span><span class="s2">&quot;*/.venv/*&quot;</span><span class="w"> </span>!<span class="w"> </span>-path<span class="w"> </span><span class="s2">&quot;*/env/*&quot;</span><span class="k">)</span><span class="w"> </span>--fail-under<span class="o">=</span><span class="m">7</span>.0<span class="w"> </span>--max-locals<span class="o">=</span><span class="m">30</span>
+pylint<span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>.<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s2">"*.py"</span><span class="w"> </span>!<span class="w"> </span>-path<span class="w"> </span><span class="s2">"*/venv/*"</span><span class="w"> </span>!<span class="w"> </span>-path<span class="w"> </span><span class="s2">"*/.venv/*"</span><span class="w"> </span>!<span class="w"> </span>-path<span class="w"> </span><span class="s2">"*/env/*"</span><span class="k">)</span><span class="w"> </span>--fail-under<span class="o">=</span><span class="m">7</span>.0<span class="w"> </span>--max-locals<span class="o">=</span><span class="m">30</span>
 </pre></div>
 </div>
 </li>
 <li><p><strong>Commit Your Changes</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add: Brief description of your changes&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Add: Brief description of your changes"</span>
 </pre></div>
 </div>
 </li>
