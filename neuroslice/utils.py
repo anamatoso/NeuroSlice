@@ -28,6 +28,7 @@ def download_model(axis, verbose):
         disable_progress_bars()
     else:
         enable_progress_bars()
+    
     if os.path.exists(f"models/{direction}_best.pt"):
         model_path = f"models/{direction}_best.pt"
     else:

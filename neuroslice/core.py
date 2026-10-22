@@ -152,7 +152,7 @@ def predict_multi_axis(data: np.ndarray, axes: list, verbose: bool = False):
     return combined_mask
 
 
-def predict_mask(nifti_path: str, axis: int | list, verbose: bool = False, mode: str = None, save_path: str = None):
+def predict_mask(nifti_path: str, axis: int | list | tuple, verbose: bool = False, mode: str = None, save_path: str = None):
     """Generate a binary tumor mask from a 3D NIfTI image using a trained YOLO model.
 
     Args:
@@ -177,9 +177,11 @@ def predict_mask(nifti_path: str, axis: int | list, verbose: bool = False, mode:
 
     if isinstance(axis, list):
         binary_mask = predict_multi_axis(data, axis, verbose=verbose)
+    elif isinstance(axis, tuple):
+        binary_mask = predict_multi_axis(data, list(axis), verbose=verbose)
     else:
         binary_mask = predict(data, axis, verbose)
-
+    
     if mode == "cuboid":
         if verbose:
             print("Converting to cuboid mask...")
